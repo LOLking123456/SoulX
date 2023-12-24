@@ -27,7 +27,7 @@ local Section1 = Tab2:NewSection("Player-Features")
 local CredSection = Tab1:NewSection("Settings")
 
 
-Section:NewToggle("Auto Tap/Attack", "Auto Tap", function(Value)
+Section:NewToggle("Auto Tap", "Auto Tap", function(Value)
    a = Value
         while a do task.wait()
         pcall(function()
@@ -46,6 +46,35 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
 
    end)
         end
+end)
+
+
+Section:NewToggle("Auto Attack", "Auto Attack", function(state)
+if state then
+_G.loops = false
+while wait(0.3) do
+if _G.loops == false then
+
+local vim = game:GetService'VirtualInputManager'
+
+vim:SendMouseButtonEvent(50.AbsolutePosition.X+50.AbsoluteSize.2/2,50.AbsolutePosition.Y+50,0,true,x,1)
+vim:SendMouseButtonEvent(50.AbsolutePosition.X+50.AbsoluteSize.2/2,50.AbsolutePosition.Y+50,0,false,x,1)
+end
+end
+else
+
+_G.loops = true
+while wait(0.7) do
+if _G.loops == false then
+
+local vim = game:GetService'VirtualInputManager'
+local x =  game.Players.LocalPlayer.PlayerGui.Main.Level
+
+vim:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,true,x,1)
+vim:SendMouseButtonEvent(x.AbsolutePosition.X+x.AbsoluteSize.X/2,x.AbsolutePosition.Y+50,0,false,x,1)
+end
+end
+end
 end)
 
 
