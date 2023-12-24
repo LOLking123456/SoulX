@@ -50,7 +50,7 @@ end)
 
 Section:NewToggle("Auto Attack", "Auto Attack", function(Value)
    a = Value
-        while a do task.wait()
+        while a do task.wait(.3)
         pcall(function()
 local vim = game:GetService("VirtualInputManager")
 local player = game.Players.LocalPlayer
