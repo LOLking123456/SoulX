@@ -49,6 +49,33 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
 end)
 
 
+Section:NewToggle("Auto Tap", "Auto Tap", function(Value)
+   a = Value
+        while a do task.wait()
+        pcall(function()
+-- Get the Roblox player and mouse objects
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+-- Function to click at the center of the screen
+local function clickCenter()
+    -- Get the center of the screen
+    local screenWidth, screenHeight = game:GetService("GuiService"):GetScreenSize()
+    local center = Vector2.new(screenWidth / 2, screenHeight / 2)
+
+    -- Simulate a click at the center
+    mouse.click(center)
+end
+
+-- Call the function to click at the center
+clickCenter()
+
+ end)
+        end
+end)
+
+
+
 Section:NewToggle("Auto Attack", "Auto Attack", function(state)
 if state then
 _G.loops = false
