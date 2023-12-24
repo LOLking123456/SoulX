@@ -49,10 +49,17 @@ end)
 
 Section:NewButton("Free Cash 3", "Free Cash", function()
 local args = {
-    [1] = "johnroblox"
+    [1] = {
+        [1] = {
+            [1] = "\3",
+            [2] = "Click",
+            [3] = "Execute",
+            [4] = workspace:WaitForChild("_ENEMIES"):WaitForChild("1"):WaitForChild("jupy")
+        }
+    }
 }
 
-game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("RedeemCode"):InvokeServer(unpack(args))
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
 
 
 end)
