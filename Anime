@@ -50,7 +50,7 @@ end)
 
 Section:NewToggle("Auto Attack", "Auto Attack", function(Value)
    a = Value
-        while a do task.wait(.3)
+        while a do task.wait(.5)
         pcall(function()
 local vim = game:GetService("VirtualInputManager")
 local player = game.Players.LocalPlayer
@@ -66,11 +66,12 @@ local function findGuiElement(parent, targetType)
     return nil
 end
 
+-- Find the GUI element
 local x = findGuiElement(starterGui, "GuiObject") -- Replace "GuiObject" with the type of GUI element you're looking for
 
 if x then
-    local clickX = x.AbsolutePosition.X - 50 -- Adjust the value (e.g., subtract 50 for a left position)
-    local clickY = x.AbsolutePosition.Y + x.AbsoluteSize.Y / 2 + 10 -- Adjust the value (e.g., add 10 for a lower position)
+    local clickX = x.AbsolutePosition.X + x.AbsoluteSize.X / 2 - 10 -- Adjust the value (e.g., subtract 10 for a more left position)
+    local clickY = x.AbsolutePosition.Y + x.AbsoluteSize.Y / 2 + 35 -- Adjust the value (e.g., add 10 for a lower position)
 
     vim:SendMouseButtonEvent(clickX, clickY, 0, true, x, 1)
     vim:SendMouseButtonEvent(clickX, clickY, 0, false, x, 1)
