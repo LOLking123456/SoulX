@@ -177,6 +177,19 @@ for i, v in pairs(game.Workspace["_ENEMIES"]:GetDescendants()) do
     end    
 end)
 
+Section:NewButton("FPS Booster", "FPS Booster", function()
+
+     for _,v in pairs(workspace:GetDescendants()) do
+if v.ClassName == "Part"
+or v.ClassName == "SpawnLocation"
+or v.ClassName == "WedgePart"
+or v.ClassName == "Terrain"
+or v.ClassName == "MeshPart" then
+v.Material = "Plastic"
+end
+end
+end)
+
 Section:NewLabel("Auto Open Eggs")
 
 Section:NewToggle("Auto Cursed Egg (Be Close)", "Auto", function(Value)
