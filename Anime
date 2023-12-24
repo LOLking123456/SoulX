@@ -68,7 +68,7 @@ while true do
 
     if x then
         local clickX = x.AbsolutePosition.X + x.AbsoluteSize.X / 2
-        local clickY = x.AbsolutePosition.Y + 50
+        local clickY = x.AbsolutePosition.Y + x.AbsoluteSize.Y / 2 + 30 -- Adjust the value (e.g., add 10 for a lower position)
 
         vim:SendMouseButtonEvent(clickX, clickY, 0, true, x, 1)
         vim:SendMouseButtonEvent(clickX, clickY, 0, false, x, 1)
