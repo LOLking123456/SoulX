@@ -1,6 +1,6 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
-local Window = Library.CreateLib("Tower Defense X: BETA | Legend HandlesYT", "Ocean")
+local Window = Library.CreateLib("Anime Souls Simulator X | Legend HandlesYT", "Ocean")
 
 
 local Tab = Window:NewTab("Main-Features")
