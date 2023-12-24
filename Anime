@@ -75,10 +75,87 @@ clickCenter()
 end)
 
 
+Section:NewButton("Redeem All Codes (NEW)", "Redeem Codes", function()
+spawn(function()
+local args = {
+    [1] = {
+        [1] = {
+            [1] = "\3",
+            [2] = "Codes",
+            [3] = "Use",
+            [4] = "3KLIKES"
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+end)
+wait(.1)
+spawn(function()
+local args = {
+    [1] = {
+        [1] = {
+            [1] = "\3",
+            [2] = "Codes",
+            [3] = "Use",
+            [4] = "5KLIKES"
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+end)
+
+wait(.1)
+spawn(function()
+local args = {
+    [1] = {
+        [1] = {
+            [1] = "\3",
+            [2] = "Codes",
+            [3] = "Use",
+            [4] = "RELEASE"
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+end)
+
+wait(.1)
+spawn(function()
+local args = {
+    [1] = {
+        [1] = {
+            [1] = "\3",
+            [2] = "Codes",
+            [3] = "Use",
+            [4] = "1KLIKES"
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+end)
+
+spawn(function()
+local args = {
+    [1] = {
+        [1] = {
+            [1] = "\3",
+            [2] = "Codes",
+            [3] = "Use",
+            [4] = "SORRYFORSHUTDOWN"
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+end)
+end)
 
 
-
-Section:NewButton("Hitbox", "Auto", function()
+Section:NewButton("Hitbox", "Hitbox", function()
 
 for i, v in pairs(game.Workspace["_ENEMIES"]:GetDescendants()) do
           if v.Name == "HumanoidRootPart" then
