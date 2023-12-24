@@ -47,20 +47,35 @@ end)
 
 
 
-Section:NewButton("mob", "Free Cash", function()
+Section:NewButton("mo23b", "Free Cash", function()
 local args = {
     [1] = {
         [1] = {
             [1] = "\3",
             [2] = "Click",
-            [3] = "Execute",
-            [4] = workspace:WaitForChild("_ENEMIES"):WaitForChild("1"):WaitForChild("jupy")
+            [3] = "Execute"
         }
     }
 }
 
-game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+-- Assuming the folders are located in workspace:_ENEMIES
+local enemiesFolder = workspace:WaitForChild("_ENEMIES")
 
+-- Iterate over all folders inside _ENEMIES
+for _, folder in pairs(enemiesFolder:GetChildren()) do
+    if folder:IsA("Folder") and tonumber(folder.Name) then
+        -- Iterate over all mobs inside the current folder
+        for _, mob in pairs(folder:GetChildren()) do
+            if mob:IsA("Model") then
+                -- Add the current mob to the args
+                table.insert(args[1], mob)
+            end
+        end
+    end
+end
+
+-- Fire the remote event with the modified args
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
 
 end)
 
