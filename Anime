@@ -48,32 +48,38 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
         end
 end)
 
-
-Section:NewToggle("Auto Tap", "Auto Tap", function(Value)
-   a = Value
-        while a do task.wait()
-        pcall(function()
--- Get the Roblox player and mouse objects
+Section:NewButton("Redeem All Codes (NEW)", "Redeem Codes", function()
+local vim = game:GetService("VirtualInputManager")
 local player = game.Players.LocalPlayer
-local mouse = player:GetMouse()
+local starterGui = player:WaitForChild("PlayerGui")
 
--- Function to click at the center of the screen
-local function clickCenter()
-    -- Get the center of the screen
-    local screenWidth, screenHeight = game:GetService("GuiService"):GetScreenSize()
-    local center = Vector2.new(screenWidth / 2, screenHeight / 2)
-
-    -- Simulate a click at the center
-    mouse.click(center)
+-- Function to find a GUI element by type (you might need to customize this based on your needs)
+local function findGuiElement(parent, targetType)
+    for _, descendant in pairs(parent:GetDescendants()) do
+        if descendant:IsA(targetType) then
+            return descendant
+        end
+    end
+    return nil
 end
 
--- Call the function to click at the center
-clickCenter()
+while true do
+    local x = findGuiElement(starterGui, "GuiObject") -- Replace "GuiObject" with the type of GUI element you're looking for
 
- end)
-        end
+    if x then
+        local clickX = x.AbsolutePosition.X + x.AbsoluteSize.X / 2
+        local clickY = x.AbsolutePosition.Y + 50
+
+        vim:SendMouseButtonEvent(clickX, clickY, 0, true, x, 1)
+        vim:SendMouseButtonEvent(clickX, clickY, 0, false, x, 1)
+    else
+        warn("No suitable GUI element found")
+    end
+
+    wait(1)
+end
+
 end)
-
 
 Section:NewButton("Redeem All Codes (NEW)", "Redeem Codes", function()
 spawn(function()
