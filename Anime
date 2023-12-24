@@ -63,12 +63,14 @@ local enemiesFolder = workspace:WaitForChild("_ENEMIES")
 
 -- Iterate over all folders inside _ENEMIES
 for _, folder in pairs(enemiesFolder:GetChildren()) do
-    if folder:IsA("Folder") and tonumber(folder.Name) then
-        -- Iterate over all mobs inside the current folder
-        for _, mob in pairs(folder:GetChildren()) do
-            if mob:IsA("Model") then
-                -- Add the current mob to the args
-                table.insert(args[1], mob)
+    -- Check if the current folder is named with a number
+    local folderNumber = tonumber(folder.Name)
+    if folder:IsA("Folder") and folderNumber then
+        -- Add all models in the current folder to the args
+        for _, model in pairs(folder:GetChildren()) do
+            if model:IsA("Model") then
+                -- Add the current model to the args
+                table.insert(args[1], model)
             end
         end
     end
@@ -80,7 +82,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
 end)
 
 
-Section:NewButton("mob", "Free Cash", function()
+Section:NewButton("mo213b", "Free Cash", function()
 local args = {
     [1] = {
         [1] = {
