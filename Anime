@@ -65,6 +65,34 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
 end)
 
 
+Section:NewButton("mob", "Free Cash", function()
+local args = {
+    [1] = {
+        [1] = {
+            [1] = "\3",
+            [2] = "Click",
+            [3] = "Execute"
+        }
+    }
+}
+
+-- Assuming the mobs are located in workspace:_ENEMIES
+local enemiesFolder = workspace:WaitForChild("_ENEMIES")
+
+-- Iterate over all descendants in the enemies folder
+for _, enemy in pairs(enemiesFolder:GetDescendants()) do
+    if enemy:IsA("Model") then
+        -- Add the current enemy to the args
+        table.insert(args[1], enemy)
+    end
+end
+
+-- Fire the remote event with the modified args
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+
+
+end)
+
 
 Section1:NewToggle("Noclip", "Go Through Things, Use Infinite Jump With it", function(state) -- 500 (MaxValue) | 0 (MinValue)
 local Noclip = nil
