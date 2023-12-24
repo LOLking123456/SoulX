@@ -49,6 +49,150 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
 end)
 
 
+Section:NewButton("Hitbox", "Auto", function()
+
+for i, v in pairs(game.Workspace["_ENEMIES"]:GetDescendants()) do
+          if v.Name == "HumanoidRootPart" then
+
+                v.Size = Vector3.new(30,30,30)
+                v.Transparency = 0.7
+                 v.Material = "Neon"
+             v.BrickColor = BrickColor.new("Really red")
+                v.CanCollide = true
+        end
+    end    
+end)
+
+Section:NewLabel("Auto Open Eggs")
+
+Section:NewToggle("Auto Cursed Egg (Be Close)", "Auto", function(Value)
+   a = Value
+        while a do task.wait()
+        pcall(function()
+local args = {
+    [1] = {
+        [1] = {
+            [1] = "\3",
+            [2] = "Pets",
+            [3] = "Open",
+            [4] = "Cursed Chest",
+            [5] = "One"
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+  end)
+        end
+end)
+
+
+Section:NewToggle("Auto Dragon Egg (Be Close)", "Auto", function(Value)
+   a = Value
+        while a do task.wait()
+        pcall(function()
+local args = {
+    [1] = {
+        [1] = {
+            [1] = "\3",
+            [2] = "Pets",
+            [3] = "Open",
+            [4] = "Dragon Chest",
+            [5] = "One"
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+  end)
+        end
+end)
+
+
+Section:NewToggle("Auto Ninja Egg (Be Close)", "Auto", function(Value)
+   a = Value
+        while a do task.wait()
+        pcall(function()
+local args = {
+    [1] = {
+        [1] = {
+            [1] = "\3",
+            [2] = "Pets",
+            [3] = "Open",
+            [4] = "Ninja Chest",
+            [5] = "One"
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+  end)
+        end
+end)
+
+Section:NewToggle("Auto Hunter Egg (Be Close)", "Auto", function(Value)
+   a = Value
+        while a do task.wait()
+        pcall(function()
+local args = {
+    [1] = {
+        [1] = {
+            [1] = "\3",
+            [2] = "Pets",
+            [3] = "Open",
+            [4] = "Hunter Chest",
+            [5] = "One"
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+  end)
+        end
+end)
+
+Section:NewToggle("Auto Spirit Egg (Be Close)", "Auto", function(Value)
+   a = Value
+        while a do task.wait()
+        pcall(function()
+local args = {
+    [1] = {
+        [1] = {
+            [1] = "\3",
+            [2] = "Pets",
+            [3] = "Open",
+            [4] = "Spirit Chest",
+            [5] = "One"
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+  end)
+        end
+end)
+
+Section:NewToggle("Auto Bizarre Egg (Be Close)", "Auto", function(Value)
+   a = Value
+        while a do task.wait()
+        pcall(function()
+local args = {
+    [1] = {
+        [1] = {
+            [1] = "\3",
+            [2] = "Pets",
+            [3] = "Open",
+            [4] = "Bizarre Chest",
+            [5] = "One"
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+  end)
+        end
+end)
+
 Section11:NewButton("Teleport To Areas 1", "Tp", function()
 for i,v in pairs(workspace._AREAS["1"].Barrier:GetChildren()) do
                     if v.Name == "Part" then 
