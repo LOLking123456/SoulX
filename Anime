@@ -46,8 +46,10 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
 end)
 
 
-
-Section:NewButton("mo23b", "Free Cash", function()
+Section:NewToggle("Auto Tap/Attack", "Auto Tap", function(Value)
+   a = Value
+        while a do task.wait()
+        pcall(function()
 local args = {
     [1] = {
         [1] = {
@@ -66,20 +68,18 @@ for _, folder in pairs(enemiesFolder:GetChildren()) do
     -- Check if the current folder is named with a number
     local folderNumber = tonumber(folder.Name)
     if folder:IsA("Folder") and folderNumber then
-        -- Add all models in the current folder to the args
-        for _, model in pairs(folder:GetChildren()) do
-            if model:IsA("Model") then
-                -- Add the current model to the args
-                table.insert(args[1], model)
-            end
-        end
+        -- Add the entire folder (all models inside) to the args
+        table.insert(args[1], folder)
     end
 end
 
 -- Fire the remote event with the modified args
 game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
 
+   end)
+        end
 end)
+
 
 
 Section:NewButton("mo213b", "Free Cash", function()
