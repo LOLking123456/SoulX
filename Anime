@@ -47,7 +47,7 @@ end)
 
 
 
-Section:NewButton("Free Cash 3", "Free Cash", function()
+Section:NewButton("mob", "Free Cash", function()
 local args = {
     [1] = {
         [1] = {
