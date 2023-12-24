@@ -48,9 +48,9 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
         end
 end)
 
-Section:NewToggle("Auto Attack", "Auto Attack", function(Value)
+Section:NewToggle("Kill Aura", "Kill Aura", function(Value)
    a = Value
-        while a do task.wait(.5)
+        while a do task.wait()
         pcall(function()
 local vim = game:GetService("VirtualInputManager")
 local player = game.Players.LocalPlayer
