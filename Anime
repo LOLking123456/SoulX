@@ -66,18 +66,17 @@ local function findGuiElement(parent, targetType)
     return nil
 end
 
-while true do
-    local x = findGuiElement(starterGui, "GuiObject") -- Replace "GuiObject" with the type of GUI element you're looking for
+local x = findGuiElement(starterGui, "GuiObject") -- Replace "GuiObject" with the type of GUI element you're looking for
 
-    if x then
-        local clickX = x.AbsolutePosition.X + x.AbsoluteSize.X / 2
+if x then
+    local clickX = x.AbsolutePosition.X + x.AbsoluteSize.X / 2
         local clickY = x.AbsolutePosition.Y + 44
 
-        vim:SendMouseButtonEvent(clickX, clickY, 0, true, x, 1)
-        vim:SendMouseButtonEvent(clickX, clickY, 0, false, x, 1)
-    else
-        warn("No suitable GUI element found")
-    end
+    vim:SendMouseButtonEvent(clickX, clickY, 0, true, x, 1)
+    vim:SendMouseButtonEvent(clickX, clickY, 0, false, x, 1)
+else
+    warn("No suitable GUI element found")
+end
 
   end)
         end
