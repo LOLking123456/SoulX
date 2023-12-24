@@ -69,8 +69,8 @@ end
 local x = findGuiElement(starterGui, "GuiObject") -- Replace "GuiObject" with the type of GUI element you're looking for
 
 if x then
-    local clickX = x.AbsolutePosition.X + x.AbsoluteSize.X / 2
-        local clickY = x.AbsolutePosition.Y + 44
+    local clickX = x.AbsolutePosition.X - 50 -- Adjust the value (e.g., subtract 50 for a left position)
+    local clickY = x.AbsolutePosition.Y + x.AbsoluteSize.Y / 2 + 10 -- Adjust the value (e.g., add 10 for a lower position)
 
     vim:SendMouseButtonEvent(clickX, clickY, 0, true, x, 1)
     vim:SendMouseButtonEvent(clickX, clickY, 0, false, x, 1)
